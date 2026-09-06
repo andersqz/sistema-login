@@ -1,5 +1,4 @@
 using Identity.Api.Dtos.Roles;
-using Identity.Api.Models;
 
 namespace Identity.Api.Interfaces.Services
 {

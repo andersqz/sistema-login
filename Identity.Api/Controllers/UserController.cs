@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Identity.Api.Dtos.Users;
 using Identity.Api.Exceptions;
 using Identity.Api.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
+
 
 namespace Identity.Api.Controllers
 {
