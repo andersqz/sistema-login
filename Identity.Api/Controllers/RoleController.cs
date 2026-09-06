@@ -1,7 +1,6 @@
-using Identity.Api.Dtos.Roles;
-using Identity.Api.Exceptions;
-using Identity.Api.Interfaces.Services;
-using Identity.Api.Models;
+using Identity.App.Dtos.Roles;
+using Identity.Domain.Exceptions;
+using Identity.App.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.Api.Controllers

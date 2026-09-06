@@ -1,8 +1,8 @@
-using Identity.Api.Data;
-using Identity.Api.Interfaces.Repositories;
-using Identity.Api.Interfaces.Services;
+using Identity.Infra.Data;
+using Identity.Domain.Interfaces.Repositories;
+using Identity.App.Interfaces.Services;
 using Identity.Api.Repositories;
-using Identity.Api.Services;
+using Identity.App.Services;
 public class Program
 {
     public static void Main(string[] args)

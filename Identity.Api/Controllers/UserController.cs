@@ -1,6 +1,6 @@
-using Identity.Api.Dtos.Users;
-using Identity.Api.Exceptions;
-using Identity.Api.Interfaces.Services;
+using Identity.App.Dtos.Users;
+using Identity.Domain.Exceptions;
+using Identity.App.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
