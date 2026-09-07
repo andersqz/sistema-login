@@ -3,6 +3,7 @@ using Identity.Domain.Interfaces.Repositories;
 using Identity.App.Interfaces.Services;
 using Identity.Infra.Repositories;
 using Identity.App.Services;
+using Identity.Api.Middlewares;
 public class Program
 {
     public static void Main(string[] args)
@@ -10,6 +11,9 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddControllers();
+
+        builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+        builder.Services.AddProblemDetails();
 
         builder.Services.AddScoped<IRoleService, RoleService>();
         builder.Services.AddScoped<IRoleRepository, RoleRepository>();
@@ -30,7 +34,10 @@ public class Program
             app.UseSwaggerUI();
         }
 
+        app.UseExceptionHandler();
+
         app.UseHttpsRedirection();
+        
         app.UseAuthorization();
 
         app.MapControllers();
