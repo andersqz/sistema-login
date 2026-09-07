@@ -23,31 +23,16 @@ namespace Identity.Api.Controllers
         public async Task<IActionResult> Get()
         {
             _logger.LogInformation("Buscando todas as Roles");
-            try
-            {
-                IEnumerable<RoleResponseDto> roles = await _service.GetAll();
-                return Ok(roles);
-            }
-            catch (NotFoundException e)
-            {
-                return NotFound(e.Message);
-            }
+            IEnumerable<RoleResponseDto> roles = await _service.GetAll();
+            return Ok(roles);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             _logger.LogInformation("Buscando a role {id}", id);
-            try
-            {
-                RoleResponseDto role = await _service.GetById(id);
-                return Ok(role);
-            }
-            catch (NotFoundException e)
-            {
-                return NotFound(e.Message);
-            }
-
+            RoleResponseDto role = await _service.GetById(id);
+            return Ok(role);
         }
 
 
@@ -55,15 +40,8 @@ namespace Identity.Api.Controllers
         public async Task<IActionResult> Post([FromBody] RoleRequestDto request)
         {
             _logger.LogInformation("Criando uma Role");
-            try
-            {
-                RoleResponseDto response = await _service.Create(request);
-                return CreatedAtAction(nameof(GetById), new {id = response.Id}, response);
-            }
-            catch (RuleBusinessException e)
-            {
-                return Conflict(e.Message);
-            }            
+            RoleResponseDto response = await _service.Create(request);
+            return CreatedAtAction(nameof(GetById), new {id = response.Id}, response);          
         }
     }
 }
