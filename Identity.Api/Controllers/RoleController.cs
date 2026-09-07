@@ -10,14 +10,19 @@ namespace Identity.Api.Controllers
     [Route("api/role")]
     public class RoleController : ControllerBase
     {
+        private readonly ILogger<RoleController> _logger;
         private readonly IRoleService _service;
-        public RoleController(IRoleService service)
-            => _service = service;
+        public RoleController(IRoleService service, ILogger<RoleController> logger)
+        {
+            _service = service;
+            _logger = logger;
+        } 
 
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+            _logger.LogInformation("Buscando todas as Roles");
             try
             {
                 IEnumerable<RoleResponseDto> roles = await _service.GetAll();
@@ -32,6 +37,7 @@ namespace Identity.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
+            _logger.LogInformation("Buscando a role {id}", id);
             try
             {
                 RoleResponseDto role = await _service.GetById(id);
@@ -48,6 +54,7 @@ namespace Identity.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RoleRequestDto request)
         {
+            _logger.LogInformation("Criando uma Role");
             try
             {
                 RoleResponseDto response = await _service.Create(request);
