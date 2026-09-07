@@ -1,7 +1,7 @@
 using Identity.Infra.Data;
 using Identity.Domain.Interfaces.Repositories;
 using Identity.App.Interfaces.Services;
-using Identity.Api.Repositories;
+using Identity.Infra.Repositories;
 using Identity.App.Services;
 public class Program
 {

@@ -3,7 +3,7 @@ using Identity.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Identity.Domain.Interfaces.Repositories;
 
-namespace Identity.Api.Repositories
+namespace Identity.Infra.Repositories
 {
     public class RoleRepository : IRoleRepository
     {
