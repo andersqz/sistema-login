@@ -96,7 +96,7 @@ namespace Identity.App.Services
 
             if (u is null)
             {
-                throw new NotFoundException($"Usuário ID {email} não encontrado.");
+                throw new NotFoundException($"Usuário E-mail {email} não encontrado.");
             }
 
             return new UserResponseDto()
